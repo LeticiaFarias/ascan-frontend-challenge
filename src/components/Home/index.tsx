@@ -1,12 +1,7 @@
-import React from 'react'
-import { Container } from './styles'
+import React from 'react';
 
 function Home() {
-  return (
-    <div className="home">
-
-    </div>
-  )
+	return <div className="home" />;
 }
 
 export default Home;
