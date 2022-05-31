@@ -1,31 +1,29 @@
-import React from 'react';
+import React from "react";
 import {
 	Nav,
 	Navbar,
 	NavbarBrand,
-	NavItem,
+	NavLink,
 	Collapse,
-	NavbarText,
-} from 'reactstrap';
-import { Link } from 'react-router-dom';
+} from "reactstrap";
+import { NavLink as RRNavLink } from "react-router-dom";
 
 function NavbarComponent() {
 	return (
 		<div>
 			<Navbar color="dark" dark expand="md" fixed="top" full>
-				<Link to="/home">
-					<NavbarBrand>Star Wars</NavbarBrand>
-				</Link>
+				<NavbarBrand style={{color: "#FFEE32"}} tag={RRNavLink} to="/home">
+					Star Wars
+				</NavbarBrand>
 				<Collapse navbar>
 					<Nav className="me-auto" navbar>
-						<Link to="/people">
-							<NavItem>Pessoas</NavItem>
-						</Link>
-						<Link to="/planets">
-							<NavItem>Planetas</NavItem>
-						</Link>
+						<NavLink style={{color: "#FFF"}} tag={RRNavLink} to="/peoples">
+							Pessoas
+						</NavLink>
+						<NavLink style={{color: "#FFF"}} tag={RRNavLink} to="/planets">
+							Planetas
+						</NavLink>
 					</Nav>
-					<NavbarText>Simple Text</NavbarText>
 				</Collapse>
 			</Navbar>
 		</div>

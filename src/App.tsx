@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import NavbarComponent from './components/Navbar';
-import Home from './components/Home';
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import NavbarComponent from "./components/Navbar";
+import Home from "./components/Home";
+import Peoples from "./components/Peoples";
 
 function App() {
 	const [people, setPeople] = useState([]);
@@ -10,13 +11,13 @@ function App() {
 
 	useEffect(() => {
 		async function fetchPeople(): Promise<void> {
-			const res = await fetch('https://swapi.dev/api/people/?format=json');
+			const res = await fetch("https://swapi.dev/api/people/?format=json");
 			const data = await res.json();
 			setPeople(data.results);
 		}
 
 		async function fetchPlanets(): Promise<void> {
-			const res = await fetch('https://swapi.dev/api/planets/');
+			const res = await fetch("https://swapi.dev/api/planets/");
 			const data = await res.json();
 			setPlanets(data.results);
 		}
@@ -24,8 +25,8 @@ function App() {
 		fetchPeople();
 		fetchPlanets();
 
-		console.log('data', people);
-		console.log('data', planets);
+		console.log("data", people);
+		console.log("data", planets);
 
 		function loadingScreen(): void {}
 	}, []);
@@ -34,15 +35,6 @@ function App() {
 		<div className="App">
 			<Router>
 				<NavbarComponent />
-				<Switch>
-					<Route path="/home">
-						<Home />
-					</Route>
-					<Route path="/people">
-						<Peoples />
-					</Route>
-					<Route path="/planets"></Route>
-				</Switch>
 			</Router>
 		</div>
 	);
